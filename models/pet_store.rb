@@ -18,5 +18,10 @@ class PetStore
     @id = pet_stores_data.first["id"].to_i
   end
 
+  # def list_pets()
+  #   sql = "SELECT * FROM pets WHERE "
+
+  # end
+
 
 end
