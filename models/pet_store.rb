@@ -18,10 +18,12 @@ class PetStore
     @id = pet_stores_data.first["id"].to_i
   end
 
-  # def list_pets()
-  #   sql = "SELECT * FROM pets WHERE "
-
-  # end
+  def list_pets()
+    sql = "SELECT * FROM pets WHERE pet_store_id = #{@id}"
+    pets_data = @runner.run(sql)
+    array = pets_data.map { |pet| Pet.new(pet, runner) }
+    return array
+  end
 
 
 end
