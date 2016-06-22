@@ -14,6 +14,7 @@ pet_1 = Pet.new( {"name" => "Bug", "type" => "Dog", "pet_store_id" => pet_store.
 pet_2 = Pet.new( {"name" => "Bumble", "type" => "Cat", "pet_store_id" => pet_store.id }, runner )
 pet_1.save()
 pet_2.save()
+pet_1.store()
 
 
 binding.pry

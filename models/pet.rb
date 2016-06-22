@@ -19,4 +19,11 @@ class Pet
     @id = pets_data.first["id"].to_i
   end
 
+  def store()
+    sql = "SELECT * FROM pet_stores WHERE id = #{@pet_store_id}"
+    store_data = @runner.run(sql)
+    store = PetStore.new(store_data.first, @runner)
+    return store
+  end
+
 end
