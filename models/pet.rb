@@ -26,4 +26,9 @@ class Pet
     return store
   end
 
+  def delete()
+    sql = "DELETE FROM pets WHERE id = #{@id}"
+    @runner.run(sql)
+  end
+
 end

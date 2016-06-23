@@ -9,6 +9,8 @@ runner = SqlRunner.new( {dbname: "pet_shop_chain", host: "localhost"} )
 pet_store = PetStore.new( {"name" => "Unit A", "address_line" => "Meadowhall Retail Park", "stock_type" => "Regular stock" }, runner )
 pet_store.save()
 pet_store.list_pets()
+pet_store.find_store_by_id()
+
 
 pet_1 = Pet.new( {"name" => "Bug", "type" => "Dog", "pet_store_id" => pet_store.id }, runner )
 pet_2 = Pet.new( {"name" => "Bumble", "type" => "Cat", "pet_store_id" => pet_store.id }, runner )
@@ -16,6 +18,9 @@ pet_1.save()
 pet_2.save()
 pet_1.store()
 
+pet_1.delete()
+pet_2.delete()
+pet_store.delete()
 
 binding.pry
 nil

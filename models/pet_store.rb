@@ -5,7 +5,7 @@ class PetStore
   attr_reader(:id, :name, :address_line, :stock_type, :runner)
 
   def initialize(options, runner)
-    @id = options["id"]
+    @id = options["id"].to_i
     @name = options["name"]
     @address_line = options["address_line"]
     @stock_type = options["stock_type"]
@@ -25,5 +25,16 @@ class PetStore
     return array
   end
 
+  def find_store_by_id()
+    sql = "SELECT * FROM pet_stores WHERE id = #{@id}"
+    store_by_id = @runner.run(sql)
+    pet_store = PetStore.new(store_by_id.first, @runner)
+    return pet_store
+  end
+
+  def delete()
+    sql = "DELETE FROM pet_stores WHERE id = #{@id}"
+    @runner.run(sql)
+  end
 
 end
